@@ -16,3 +16,19 @@ pub fn get_server_port() -> u16 {
         Err(_) => panic!("No SERVER_PORT set"),
     }
 }
+
+pub fn get_db_password() -> String {
+    dotenv().ok();
+    match env::var("DB_PASSWORD") {
+        Ok(password) => password,
+        Err(_) => panic!("No DB_PASSWORD set"),
+    }
+}
+
+pub fn get_logname() -> String {
+    dotenv().ok();
+    match env::var("LOGNAME") {
+        Ok(name) => name,
+        Err(_) => panic!("No LOGNAME set"),
+    }
+}

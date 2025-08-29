@@ -2,6 +2,7 @@ use actix_web::{web, App, HttpResponse, HttpServer, Responder};
 // use dotenvy::dotenv;
 // use std::env;
 mod db;
+mod player;
 mod environment;
 mod routes;
 
@@ -29,7 +30,9 @@ async fn main() -> std::io::Result<()> {
     // let _ = update_player_name("John Doe".to_string(), "Barry Allen".to_string()).await;
     // let _ = update_player_wins("John Doe".to_string(), 5, 7).await;
     HttpServer::new(|| {
-        App::new().service(player_routers::register::register_player_route)
+        App::new()
+        .service(player_routers::register::register_player_route)
+        .service(player_routers::list::get_player_list)
             // .service(hello)
             // .service(echo)
             .route("/hey", web::get().to(manual_hello))

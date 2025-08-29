@@ -1,12 +1,15 @@
-use std::env;
-use dotenvy::dotenv;
+//! This module handles environment variables for the application.
 
+use dotenvy::dotenv;
+use std::env;
+
+/// Retrieves the host URL from the environment variables.
 pub fn get_host_url() -> String {
-        dotenv().ok();
-        match env::var("HOST_URL") {
-            Ok(url) => url,
-            Err(_) => panic!("No HOST_URL set"),
-        }
+    dotenv().ok();
+    match env::var("HOST_URL") {
+        Ok(url) => url,
+        Err(_) => panic!("No HOST_URL set"),
+    }
 }
 
 pub fn get_server_port() -> u16 {

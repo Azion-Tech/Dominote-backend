@@ -1,4 +1,5 @@
 # Install prerequesites for PostgreSQL installation
+#!/bin/bash
 sudo apt update
 sudo apt install gnupg2 wget
 
@@ -12,5 +13,3 @@ sudo apt install postgresql
 # Start PostgreSQL service
 
 sudo systemctl start postgresql
-
-create_db

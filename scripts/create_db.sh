@@ -7,7 +7,6 @@ sudo -u postgres psql -c "CREATE DATABASE dominote"
 create_players_table
 }
 
-
 create_players_table(){
     # Create table for Dominote
     sudo -u postgres psql -d dominote -c "CREATE TABLE IF NOT EXISTS players (
@@ -23,6 +22,5 @@ create_players_table(){
     )
 "
 }
-
 
 create_db
